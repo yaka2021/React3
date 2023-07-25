@@ -1,0 +1,47 @@
+@charset "utf-8";
+//scssなのでネストにする
+.review-page {
+  padding-bottom: 0px;
+}
+
+.review-list {
+  text-align: center;
+}
+
+.review-list__errormsg--red {
+  color: red;
+  position: relative;
+  left: 50px;
+}
+
+.review-list__registerbutton {
+  background-color: #242f9b;
+  color: #ffffff;
+  font-size: 25px;
+  position: relative;
+  top: 35px;
+  left: 520px;
+  width: 400px;
+  height: 100px;
+  border: none;
+  border-radius: 10px;
+}
+
+.review-lists {
+  width: auto;
+  height: 500px;
+  margin: 100px 100px;
+  background-color: rgb(152, 182, 245);
+  border-radius: 10px;
+  text-align: left;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-left: 30px;
+  word-break: break-word;
+}
+
+.review-lists__reviewer {
+  font-size: 20px;
+  position: relative;
+  top: 20px;
+}

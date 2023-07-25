@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+.login {
+  width: 500px;
+  margin: 0 auto;
+
+  p,
+  .error-message {
+    color: #ff3333;
+  }
+
+  .login-form {
+    margin: 25px 0;
+
+    .email-label,
+    .password-label {
+      color: #555555;
+    }
+
+    .email-input,
+    .password-input {
+      width: 100%;
+      font-size: large;
+      height: 30px;
+      margin-bottom: 25px;
+    }
+
+    .login-button {
+      background-color: #242f9b;
+      color: #ffffff;
+      width: 100px;
+      height: 40px;
+      position: relative;
+      left: 200px;
+      top: 30px;
+      border-radius: 5px;
+    }
+  }
+  .signup {
+    position: relative;
+    left: 125px;
+    top: 40px;
+  }
+}
