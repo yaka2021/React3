@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+.regist-bookreview {
+  width: 500px;
+  margin: 0 auto 300px;
+
+  .errormsg {
+    color: #ff3333;
+  }
+
+  .regist-form {
+    margin: 25px 0;
+    color: #555555;
+
+    .title-input,
+    .bookurl-input {
+      width: 100%;
+      font-size: large;
+      height: 30px;
+      margin-bottom: 25px;
+    }
+
+    .detail-input,
+    .review-input {
+      width: 100%;
+      font-size: large;
+      height: 250px;
+      margin-bottom: 25px;
+    }
+
+    .regist-button {
+      background-color: #242f9b;
+      color: #ffffff;
+      font-weight: bold;
+      width: 100px;
+      height: 50px;
+      position: relative;
+      left: 200px;
+      top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .regist-button:hover {
+      background-color: #6574f5;
+    }
+  }
+
+  .return-home {
+    background-color: #242f9b;
+    color: #ffffff;
+    font-size: 25px;
+    position: absolute;
+    top: 1150px;
+    left: 520px;
+    width: 400px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .return-home:hover {
+    background-color: #6574f5;
+  }
+}

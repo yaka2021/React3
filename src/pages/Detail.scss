@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+.detail-page {
+  text-align: center;
+  margin-bottom: 200px;
+
+  .errormsg {
+    color: #ff3333;
+  }
+
+  .book-detail {
+    width: auto;
+    height: 600px;
+    margin: 100px 100px;
+    position: relative;
+    bottom: 50px;
+    background-color: rgb(152, 182, 245);
+    border-radius: 10px;
+    text-align: left;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    word-break: break-word;
+
+    .book-detail__review {
+      font-size: 20px;
+    }
+  }
+
+  .loading {
+    font-size: 50px;
+    position: relative;
+    top: 150px;
+  }
+
+  .return-home {
+    background-color: #242f9b;
+    color: #ffffff;
+    font-size: 25px;
+    position: absolute;
+    top: 950px;
+    left: 520px;
+    width: 400px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .return-home:hover {
+    background-color: #6574f5;
+  }
+}

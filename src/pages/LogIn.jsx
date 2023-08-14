@@ -23,16 +23,17 @@ export const LogIn = () => {
     password: yup.string().required("パスワードが入力されていません。"),
   });
 
-  const { handleChange, handleSubmit, values, errors } = useFormik({
+  const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
+    onSubmit: () => {},
     validationSchema: schema,
   });
 
   const onLogIn = () => {
-    const data = values;
+    const data = formik.values;
 
     axios
       .post(`${url}/signin`, data)
@@ -52,7 +53,7 @@ export const LogIn = () => {
       <main className="login">
         <h1>ログイン</h1>
         <p className="error-message">{errorMsg}</p>
-        <form onSubmit={handleSubmit} className="login-form">
+        <form className="login-form" onSubmit={formik.handleSubmit}>
           <label data-testid="email-label" className="email-label">
             メールアドレス
           </label>
@@ -62,11 +63,11 @@ export const LogIn = () => {
             name="email"
             data-testid="email-input"
             className="email-input"
-            onChange={handleChange}
-            value={values.email}
+            onChange={formik.handleChange}
+            value={formik.values.email}
           />
           <br />
-          <p>{errors.email}</p>
+          <p>{formik.errors.email}</p>
 
           <label data-testid="password-input" className="password-label">
             パスワード
@@ -77,14 +78,14 @@ export const LogIn = () => {
             name="password"
             data-testid="password-label"
             className="password-input"
-            onChange={handleChange}
-            value={values.password}
+            onChange={formik.handleChange}
+            value={formik.values.password}
           />
           <br />
-          <p>{errors.password}</p>
+          <p>{formik.errors.password}</p>
 
           <button
-            type="button"
+            type="submit"
             data-testid="login-button"
             className="login-button"
             onClick={onLogIn}
@@ -97,6 +98,6 @@ export const LogIn = () => {
           アカウントの新規作成はこちらから
         </Link>
       </main>
-    </div> //formなのでbuttonのonClickをonSubmitにする
+    </div>
   );
 };

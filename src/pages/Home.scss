@@ -1,47 +1,95 @@
 @charset "utf-8";
-//scssなのでネストにする
+
 .review-page {
-  padding-bottom: 0px;
-}
+  padding-bottom: 100px;
 
-.review-list {
-  text-align: center;
-}
+  .review-list {
+    text-align: center;
+  }
 
-.review-list__errormsg--red {
-  color: red;
-  position: relative;
-  left: 50px;
-}
+  .review-list__registerbutton {
+    background-color: #242f9b;
+    color: #ffffff;
+    font-size: 25px;
+    position: relative;
+    top: 35px;
+    left: 520px;
+    width: 400px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 
-.review-list__registerbutton {
-  background-color: #242f9b;
-  color: #ffffff;
-  font-size: 25px;
-  position: relative;
-  top: 35px;
-  left: 520px;
-  width: 400px;
-  height: 100px;
-  border: none;
-  border-radius: 10px;
-}
+  .review-list__registerbutton:hover {
+    background-color: #6574f5;
+  }
 
-.review-lists {
-  width: auto;
-  height: 500px;
-  margin: 100px 100px;
-  background-color: rgb(152, 182, 245);
-  border-radius: 10px;
-  text-align: left;
-  padding-top: 30px;
-  padding-right: 30px;
-  padding-left: 30px;
-  word-break: break-word;
-}
+  .review-list__errormsg--red {
+    color: red;
+    position: relative;
+    left: 50px;
+  }
 
-.review-lists__reviewer {
-  font-size: 20px;
-  position: relative;
-  top: 20px;
+  .review-lists {
+    width: auto;
+    height: 600px;
+    margin: 100px 100px;
+    background-color: rgb(152, 182, 245);
+    border-radius: 10px;
+    text-align: left;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    word-break: break-word;
+
+    .review-lists__review {
+      font-size: 20px;
+    }
+
+    .review-lists__edit {
+      background-color: #242f9b;
+      color: #ffffff;
+      font-size: 25px;
+      font-weight: bold;
+      width: 175px;
+      height: 100px;
+      position: relative;
+      left: 1000px;
+      bottom: 250px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .review-lists__edit:hover {
+      background-color: #6574f5;
+    }
+  }
+
+  .pagination {
+    color: #fff;
+    background-color: #242f9b;
+    position: relative;
+    left: 400px;
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    padding: 25px;
+    li {
+      margin: auto;
+      list-style: none;
+      a {
+        border-radius: 10px;
+        font-size: 25px;
+        font-weight: bold;
+        padding: 15px;
+        cursor: pointer;
+      }
+
+      a:hover {
+        background-color: #6574f5;
+      }
+    }
+  }
 }

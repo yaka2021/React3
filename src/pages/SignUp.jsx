@@ -14,7 +14,7 @@ export const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [image, setImage] = useState(null);
-  const [cookies, setCookie] = useCookies();
+  const [, setCookie] = useCookies();
   const handleImageChange = (e) => setImage(e.target.files[0]);
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -27,17 +27,18 @@ export const SignUp = () => {
     password: yup.string().required("パスワードが入力されていません。"),
   });
 
-  const { handleChange, handleSubmit, values, errors } = useFormik({
+  const formik = useFormik({
     initialValues: {
       name: "",
       email: "",
       password: "",
     },
+    onSubmit: () => {},
     validationSchema: schema,
   });
 
   const onSignUp = () => {
-    const data = values;
+    const data = formik.values;
 
     axios
       .post(`${url}/users`, data)
@@ -46,26 +47,24 @@ export const SignUp = () => {
         dispatch(logIn());
         setCookie("token", token);
 
-        if (!image) {
-          return;
+        if (image) {
+          new Compressor(image, {
+            quality: 0.6,
+            success(result) {
+              const formData = new FormData();
+              formData.append("icon", result, result.name);
+              axios
+                .post(`${url}/uploads`, formData, {
+                  headers: {
+                    Authorization: `Bearer ${token}`,
+                  },
+                })
+                .then(() => {
+                  navigate("/");
+                });
+            },
+          });
         }
-
-        new Compressor(image, {
-          quality: 0.6,
-          success(result) {
-            const formData = new FormData();
-            formData.append("icon", result, result.name);
-            axios
-              .post(`${url}/uploads`, formData, {
-                headers: {
-                  Authorization: `Bearer ${cookies.token}`,
-                },
-              })
-              .then(() => {
-                navigate("/");
-              });
-          },
-        });
       })
       .catch(() => {
         setErrorMsg("サインアップに失敗しました。 ");
@@ -77,34 +76,34 @@ export const SignUp = () => {
       <main className="signup">
         <h1>SignUp</h1>
         <p className="error-message">{errorMsg}</p>
-        <form onSubmit={handleSubmit} className="signup-form">
+        <form className="signup-form" onSubmit={formik.handleSubmit}>
           <label className="username">ユーザー名</label>
           <input
             type="text"
             name="name"
             className="name-input"
-            onChange={handleChange}
-            value={values.name}
+            onChange={formik.handleChange}
+            value={formik.values.name}
           />
-          <p>{errors.name}</p>
+          <p>{formik.errors.name}</p>
           <label className="email">メールアドレス</label>
           <input
             type="email"
             name="email"
             className="email-input"
-            onChange={handleChange}
-            value={values.email}
+            onChange={formik.handleChange}
+            value={formik.values.email}
           />
-          <p>{errors.email}</p>
+          <p>{formik.errors.email}</p>
           <label className="password">パスワード</label>
           <input
             type="password"
             name="password"
             className="password-input"
-            onChange={handleChange}
-            value={values.password}
+            onChange={formik.handleChange}
+            value={formik.values.password}
           />
-          <p>{errors.password}</p>
+          <p>{formik.errors.password}</p>
           <label>ユーザーアイコンの登録</label>　　　　
           <input
             type="file"
@@ -121,6 +120,6 @@ export const SignUp = () => {
           ログインはこちらから
         </Link>
       </main>
-    </div> //formなのでbuttonのonClickをonSubmitにする
+    </div>
   );
 };

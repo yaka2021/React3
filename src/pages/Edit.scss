@@ -1,0 +1,91 @@
+@charset "utf-8";
+
+.edit-page {
+  width: 500px;
+  margin: 0 auto 350px;
+
+  .errormsg {
+    color: #ff3333;
+  }
+
+  .edit-form {
+    margin: 25px 0;
+    color: #555555;
+
+    .title-edit,
+    .bookurl-edit {
+      width: 100%;
+      font-size: large;
+      height: 30px;
+      margin-bottom: 25px;
+    }
+
+    .detail-edit,
+    .review-edit {
+      width: 100%;
+      font-size: large;
+      height: 250px;
+      margin-bottom: 25px;
+    }
+
+    .edit-button {
+      background-color: #242f9b;
+      color: #ffffff;
+      font-weight: bold;
+      width: 100px;
+      height: 50px;
+      position: relative;
+      left: 110px;
+      top: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .edit-button:hover {
+      background-color: #6574f5;
+    }
+  }
+
+  .delete-button {
+    background-color: rgb(200, 0, 0);
+    color: #ffffff;
+    font-weight: bold;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    left: 300px;
+    bottom: 55px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .delete-button:hover {
+    background-color: rgb(230, 100, 100);
+  }
+
+  .loading {
+    font-size: 50px;
+    position: relative;
+    top: 150px;
+    right: 100px;
+    white-space: nowrap;
+  }
+
+  .return-home {
+    background-color: #242f9b;
+    color: #ffffff;
+    font-size: 25px;
+    position: absolute;
+    top: 1200px;
+    left: 520px;
+    width: 400px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .return-home:hover {
+    background-color: #6574f5;
+  }
+}

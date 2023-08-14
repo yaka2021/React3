@@ -25,12 +25,18 @@
     .signup-button {
       background-color: #242f9b;
       color: #ffffff;
+      font-weight: bold;
       width: 100px;
-      height: 40px;
+      height: 50px;
       position: relative;
       left: 200px;
       top: 30px;
       border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .signup-button:hover {
+      background-color: #6574f5;
     }
   }
   .login {
